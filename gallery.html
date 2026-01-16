@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy Birthday ❤️</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial;
+    background: #fff3e0;
+    text-align: center;
+    transition: opacity 0.8s;
+    background-image: url("rose.jpg");
+}
+
+h2 {
+    margin-top: 20px;
+    color: #e91e63;
+    font-size: 20px;
+}
+
+.grid {
+    width: 90%;
+    margin: 30px auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.grid img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+}
+
+button {
+    margin-bottom: 30px;
+    padding: 14px 30px;
+    font-size: 16px;
+    background: #ff4081;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+/* Desktop enhancement */
+@media (min-width: 768px) {
+    .grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+</style>
+</head>
+
+<body>
+
+<h2>You’re my favorite place to be❤️<br>
+    <b>Happieeee Birthaday🌍❤️!....</b>
+</h2>
+
+<div class="grid">
+    <img src="bg.jpeg">
+    <img src="bat.jpg">
+    <img src="cat.jpeg">
+    <img src="dog.jpg">
+    <img src="rose.jpg">
+    <img src="flower.jpg">
+</div>
+
+<button onclick="start()">Ninge innod surprise ide baa🫶🫰</button>
+
+<script>
+function start() {
+    document.body.style.opacity = "0";
+    setTimeout(() => {
+        window.location.href = "letter.html";
+    }, 800);
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Magic Message ❤️</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    height: 100vh;
+    background: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial;
+    transition: opacity 0.8s;
+}
+
+.card {
+    width: 90%;
+    max-width: 420px;
+    height: 85vh;
+    background-image: url("INDEX.jpeg");
+    background-size: cover;
+    background-position: center;
+    border-radius: 20px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(0,0,0,0.4);
+}
+
+h2 {
+    margin-top: 120px;
+    color: white;
+    font-size: 18px;
+}
+
+input {
+    width: 100%;
+    padding: 14px;
+    font-size: 16px;
+    border-radius: 10px;
+    border: none;
+    text-align: center;
+    margin-top: 20px;
+}
+
+button {
+    margin-top: 20px;
+    padding: 14px;
+    width: 100%;
+    font-size: 16px;
+    background: black;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #e91e63;
+}
+
+#error {
+    margin-top: 15px;
+    font-size: 14px;
+    color: #ffb6c1;
+    display: none;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+    <h2>Wts the first thing you’d tell me if you had to say something ❤️</h2>
+
+    <input id="text" placeholder="Type heree!...">
+
+    <button onclick="checkText()">Ningenoo heltinii kelskaa ❤️</button>
+
+    <div id="error">Thuu ning lv u antanu helakagalva😏.<br><b>I love u bangaraa</b> anta type madu crt agi aytha🙄</b>
+</div>
+
+<script>
+function checkText() {
+    let v = document.getElementById("text").value.trim();
+    let err = document.getElementById("error");
+
+    if (v === "I love u bangaraa") {
+        document.body.style.opacity = "0";
+        setTimeout(() => {
+            window.location.href = "gallery.html";
+        }, 800);
+    } else {
+        err.style.display = "block";
+    }
+}
+</script>
+
+</body>
+</html>

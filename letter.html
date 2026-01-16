@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Surprise ❤️</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+    margin: 0;
+    overflow: hidden;
+    font-family: Arial;
+    background: black;
+}
+
+.heart {
+    position: absolute;
+    font-size: 22px;
+    animation: floatUp 6s linear infinite;
+}
+
+@keyframes floatUp {
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(-900px); opacity: 0; }
+}
+
+.letter-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    width: 90%;
+    max-width: 420px;
+    height: 80vh;
+    padding: 20px;
+    border-radius: 20px;
+    background-image: url("bg.jpeg");
+    background-size: cover;
+    background-position: center;
+    animation: popup 1s forwards;
+    overflow: hidden;
+}
+
+@keyframes popup {
+    to { transform: translate(-50%, -50%) scale(1); }
+}
+
+#typing {
+    color: white;
+    font-size: 16px;
+    line-height: 26px;
+    text-align: center;
+    font-weight: bold;
+}
+</style>
+</head>
+
+<body>
+
+<audio autoplay loop>
+    <source src="song1.mp3" type="audio/mp3">
+</audio>
+
+<div class="letter-box">
+    <div id="typing"></div>
+</div>
+
+<script>
+function heart() {
+    let h = document.createElement("div");
+    h.className = "heart";
+    h.innerHTML = "💖";
+    h.style.left = Math.random() * window.innerWidth + "px";
+    h.style.bottom = "0";
+    document.body.appendChild(h);
+    setTimeout(() => h.remove(), 6000);
+}
+setInterval(heart, 300);
+</script>
+
+<script>
+const lines = [
+    "Hey bangaraaaaa ❤️",
+    "",
+    "Happyyyy Birthday My Love 🌍😘",
+    "",
+    "You make my world brighter just by being in it.",
+    "ನೀ ಬೇಕು ಎಲ್ಲಾ ಘಳಿಗೆಯು 💕",
+    "",
+    "I love you jasti bangaraaaa 😘🥹",
+    "",
+    "Forever yours ❤️"
+];
+
+let i = 0, j = 0;
+let box = document.getElementById("typing");
+
+function type() {
+    if (i < lines.length) {
+        if (j < lines[i].length) {
+            box.innerHTML += lines[i][j++];
+            setTimeout(type, 55);
+        } else {
+            box.innerHTML += "<br>";
+            i++; j = 0;
+            setTimeout(type, 350);
+        }
+    }
+}
+type();
+</script>
+
+</body>
+</html>
