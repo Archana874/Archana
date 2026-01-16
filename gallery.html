@@ -21,22 +21,37 @@ h2 {
     color: #e91e63;
     font-size: 20px;
 }
-
 .grid {
     width: 90%;
     margin: 30px auto;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
+    gap: 14px;
 }
 
-.grid img {
+.photo {
     width: 100%;
-    height: 180px;
-    object-fit: cover;
-    border-radius: 15px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+    aspect-ratio: 1 / 1;       /* perfect square */
+    border-radius: 20px;
+    overflow: hidden;          /* 🔥 important */
+    background: #fff;
+    box-shadow: 0 6px 14px rgba(0,0,0,0.25);
 }
+
+.photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top; /* 🔥 fixes face cut */
+}
+
+/* Desktop */
+@media (min-width: 768px) {
+    .grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
 
 button {
     margin-bottom: 30px;
@@ -65,15 +80,17 @@ button {
 </h2>
 
 <div class="grid">
-    <img src="us.jpeg">
-    <img src="us1.jpeg">
-    <img src="chethu.jpeg">
-    <img src="us3.jpeg">
-    <img src="us4.jpeg">
-    <img src="us5.jpeg">
-    <img src="us6.jpeg">
-    <img src="us5.jpeg">
+    <div class="photo"><img src="us.jpeg"></div>
+    <div class="photo"><img src="us1.jpeg"></div>
+    <div class="photo"><img src="chethu.jpeg"></div>
+    <div class="photo"><img src="us3.jpeg"></div>
+    <div class="photo"><img src="us4.jpeg"></div>
+    <div class="photo"><img src="us5.jpeg"></div>
+    <div class="photo"><img src="us6.jpeg"></div>
+    <div class="photo"><img src="us7.jpeg"></div>
+    <div class="photo"><img src="us8.jpeg"></div>
 </div>
+
 
 <button onclick="start()">Ninge innod surprise ide baa🫶🫰</button>
 
