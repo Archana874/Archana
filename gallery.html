@@ -151,14 +151,6 @@ button {
 <button onclick="start()">Ninge innod surprise ide baa🫶🫰</button>
 
 <script>
-function start() {
-    document.body.style.opacity = "0";
-    setTimeout(() => {
-        window.location.href = "letter.html";
-    }, 800);
-}
-</script>
-<script>
 const images = document.querySelectorAll(".photo img");
 const overlay = document.getElementById("overlay");
 const overlayImg = document.getElementById("overlayImg");
@@ -167,7 +159,24 @@ const overlayText = document.getElementById("overlayText");
 images.forEach(img => {
     img.addEventListener("click", () => {
         overlayImg.src = img.src;
-        overlayText.innerText = img.getAttribute("data-text");
+
+        let text = img.getAttribute("data-text");
+
+        // 🔥 split using ||
+        if (text.includes("||")) {
+            let parts = text.split("||");
+            overlayText.innerHTML = `
+                <div style="font-size:20px;margin-bottom:12px;">
+                    ${parts[0].trim()}
+                </div>
+                <div style="font-size:16px;opacity:0.9;">
+                    ${parts[1].trim()}
+                </div>
+            `;
+        } else {
+            overlayText.innerText = text;
+        }
+
         overlay.style.display = "flex";
     });
 });
