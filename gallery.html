@@ -184,6 +184,12 @@ images.forEach(img => {
 function closeOverlay() {
     overlay.style.display = "none";
 }
+function start() {
+    document.body.style.opacity = "0";
+    setTimeout(() => {
+        window.location.href = "letter.html"; // or next page
+    }, 800);
+}
 </script>
 
 
