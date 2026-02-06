@@ -38,7 +38,7 @@ body {
     background-size: cover;
     background-position: center;
     animation: popup 1s forwards;
-    overflow: hidden;
+    overflow: hidden;   /* 🔥 IMPORTANT */
 }
 
 .letter-box::before {
@@ -79,7 +79,19 @@ body {
     z-index: 1;
     position: relative;
 }
+.text-area {
+    position: relative;
+    z-index: 1;
+    height: calc(80vh - 90px); /* leaves space for button */
+    overflow-y: auto;
+    scroll-behavior: smooth;
+    padding-right: 5px;
+}
 
+/* hide scrollbar but keep scroll */
+.text-area::-webkit-scrollbar {
+    width: 0;
+}
 @keyframes fadeIn {
     to { opacity: 1; }
 }
@@ -93,7 +105,9 @@ body {
 </audio>
 
 <div class="letter-box">
-    <div id="typing"></div>
+    <div class="text-area">
+        <div id="typing"></div>
+    </div>
     <button id="replayBtn" onclick="replay()">Read again 💙</button>
 </div>
 
@@ -123,7 +137,7 @@ const lines = [
     "ಆಸೆಬುರುಕಿ ತುಂಬಾ ನಾನು ಸಹಿಸು ನೀನು🥹",
     "i want u foreverrrrrr bro🫶",
     "",
-    "Gunda este kasta adruu nan naa bitkodbeda aytha nam ibbru maneli opsi nan naa madve maadka aytha🙈",
+    "Gunda este kasta adruu nan na bitkodbeda aytha nam ibbru maneli opsi nan naa madve maadka aytha🙈",
     "Nang neen bekuu asteeee🥺",
     "",
     "Amele onde sala nam maneli kelbittu avr oplilla anta yaavalnadru madve maadkobekalaa avagiradu magne bandu madve nilstinii nodu and konevargu ninge naane yalla agirbeku artha aytha🙄",
@@ -147,15 +161,22 @@ const lines = [
 let i = 0, j = 0;
 const box = document.getElementById("typing");
 
+const CHAR_SPEED = 80;
+const LINE_PAUSE = 30;
+
 function type() {
+    const scrollBox = document.querySelector(".text-area");
+
     if (i < lines.length) {
         if (j < lines[i].length) {
             box.innerHTML += lines[i][j++];
-            setTimeout(type, 60);
+            scrollBox.scrollTop = scrollBox.scrollHeight;
+            setTimeout(type, CHAR_SPEED);
         } else {
             box.innerHTML += "<br>";
             i++; j = 0;
-            setTimeout(type, 450);
+            scrollBox.scrollTop = scrollBox.scrollHeight;
+            setTimeout(type, LINE_PAUSE);
         }
     }
 }
