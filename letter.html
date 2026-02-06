@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <title>Surprise ❤️</title>
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
@@ -41,6 +40,7 @@ body {
     animation: popup 1s forwards;
     overflow: hidden;
 }
+
 .letter-box::before {
     content: "";
     position: absolute;
@@ -66,6 +66,7 @@ body {
     opacity: 0;
     animation: fadeIn 1.5s ease forwards;
 }
+
 #replayBtn {
     margin-top: 20px;
     padding: 10px 22px;
@@ -93,11 +94,12 @@ body {
 
 <div class="letter-box">
     <div id="typing"></div>
+    <button id="replayBtn" onclick="replay()">Read again 💙</button>
 </div>
 
 <script>
 function heart() {
-    let h = document.createElement("div");
+    const h = document.createElement("div");
     h.className = "heart";
     h.innerHTML = "💋";
     h.style.left = Math.random() * window.innerWidth + "px";
@@ -107,13 +109,7 @@ function heart() {
 }
 setInterval(heart, 300);
 </script>
-<script>
-function replay() {
-    box.innerHTML = "";
-    i = 0; j = 0;
-    type();
-}
-</script>
+
 <script>
 const lines = [
     "Hey bangaraaaaa❤️!...",
@@ -168,9 +164,6 @@ function replay() {
 
 type();
 </script>
-<div class="letter-box">
-    <div id="typing"></div>
-    <button id="replayBtn" onclick="replay()">Read again 💙</button>
-</div>
+
 </body>
 </html>
