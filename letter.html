@@ -145,23 +145,32 @@ const lines = [
 ];
 
 let i = 0, j = 0;
-let box = document.getElementById("typing");
+const box = document.getElementById("typing");
 
 function type() {
     if (i < lines.length) {
         if (j < lines[i].length) {
             box.innerHTML += lines[i][j++];
-            setTimeout(type, 60);   // slow & emotional
+            setTimeout(type, 60);
         } else {
             box.innerHTML += "<br>";
             i++; j = 0;
-            setTimeout(type, 450);  // pause between lines
+            setTimeout(type, 450);
         }
     }
 }
-type();
-<button id="replayBtn" onclick="replay()">Read again 💙</button>
-</script>
 
+function replay() {
+    box.innerHTML = "";
+    i = 0; j = 0;
+    type();
+}
+
+type();
+</script>
+<div class="letter-box">
+    <div id="typing"></div>
+    <button id="replayBtn" onclick="replay()">Read again 💙</button>
+</div>
 </body>
 </html>
