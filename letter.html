@@ -41,17 +41,46 @@ body {
     animation: popup 1s forwards;
     overflow: hidden;
 }
+.letter-box::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(255,255,255,0.65);
+    backdrop-filter: blur(6px);
+    border-radius: 20px;
+    z-index: 0;
+}
 
 @keyframes popup {
     to { transform: translate(-50%, -50%) scale(1); }
 }
 
 #typing {
-    color: rgb(0, 0, 0);
+    position: relative;
+    z-index: 1;
+    color: #000;
     font-size: 16px;
     line-height: 26px;
     text-align: center;
     font-weight: bold;
+    opacity: 0;
+    animation: fadeIn 1.5s ease forwards;
+}
+#replayBtn {
+    margin-top: 20px;
+    padding: 10px 22px;
+    border: none;
+    border-radius: 20px;
+    background: #ff4081;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    z-index: 1;
+    position: relative;
+}
+
+@keyframes fadeIn {
+    to { opacity: 1; }
 }
 </style>
 </head>
@@ -78,7 +107,13 @@ function heart() {
 }
 setInterval(heart, 300);
 </script>
-
+<script>
+function replay() {
+    box.innerHTML = "";
+    i = 0; j = 0;
+    type();
+}
+</script>
 <script>
 const lines = [
     "Hey bangaraaaaa❤️!...",
@@ -116,15 +151,16 @@ function type() {
     if (i < lines.length) {
         if (j < lines[i].length) {
             box.innerHTML += lines[i][j++];
-            setTimeout(type, 55);
+            setTimeout(type, 60);   // slow & emotional
         } else {
             box.innerHTML += "<br>";
             i++; j = 0;
-            setTimeout(type, 350);
+            setTimeout(type, 450);  // pause between lines
         }
     }
 }
 type();
+<button id="replayBtn" onclick="replay()">Read again 💙</button>
 </script>
 
 </body>
