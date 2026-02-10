@@ -82,7 +82,7 @@ body {
 .text-area {
     position: relative;
     z-index: 1;
-    height: 100%; /* leaves space for button */
+    height: calc(80vh - 90px); /* leaves space for button */
     overflow-y: auto;
     scroll-behavior: smooth;
     padding-right: 5px;
@@ -91,21 +91,6 @@ body {
 /* hide scrollbar but keep scroll */
 .text-area::-webkit-scrollbar {
     width: 0;
-}
-#endingText {
-    margin-top: 20px;
-    text-align: center;
-    font-size: 20px;
-    font-weight: bold;
-    color: #e91e63;
-    opacity: 0;
-    animation: blink 1.2s infinite;
-}
-
-@keyframes blink {
-    0%   { opacity: 0; }
-    50%  { opacity: 1; }
-    100% { opacity: 0; }
 }
 @keyframes fadeIn {
     to { opacity: 1; }
@@ -122,9 +107,9 @@ body {
 <div class="letter-box">
     <div class="text-area">
         <div id="typing"></div>
-        <div id="endingText">Forever Yours ❤️</div>
     </div>
 </div>
+
 <script>
 function heart() {
     const h = document.createElement("div");
@@ -171,11 +156,6 @@ const lines = [
 "ನೀ ಬಚ್ಚಿಡುವೇನ ಕಣ್ಣಲಿ",
 "ನೀನೆ ನಾನೇನಾ ನಾನೆ ನೀನೇನಾ",
 "ಹೆಗದೇನಾ ಪ್ರೀತಿ ಹೀಗೆನಾ",
-"I realized that he is the best decision i have ever made🤗",
-"ಹೇಳಲು ಹೆಸರು ಚಂದ", 
-"ಕೇಳಲು ಕಥೆ ಚಂದ",
-"ರಾಮನಿಗೆ ಸೀತೆ ಚಂದ",
-"ನನ್ನ ಚೇತನನಿಗೆ ನಾನೆ ಚಂದ🙈",
     "Iste innenu ninige helod illa ankotiniii sari hog malka time agaithe🤗",
     "Byeeeeeeeeeeeeeeeee",
     "Usharuuuuuuuu❣️",
@@ -196,7 +176,6 @@ const LINE_PAUSE = 30;
 
 function type() {
     const scrollBox = document.querySelector(".text-area");
-    const ending = document.getElementById("endingText");
 
     if (i < lines.length) {
         if (j < lines[i].length) {
@@ -209,10 +188,6 @@ function type() {
             scrollBox.scrollTop = scrollBox.scrollHeight;
             setTimeout(type, LINE_PAUSE);
         }
-    } else {
-        // 🔥 typing finished → show blinking text
-        ending.style.opacity = 1;
-        scrollBox.scrollTop = scrollBox.scrollHeight;
     }
 }
 
