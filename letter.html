@@ -100,9 +100,7 @@ body {
 
 <body>
 
-<audio autoplay loop>
-    <source src="song1.mp3" type="audio/mp3">
-</audio>
+<audio id="bgMusic" autoplay></audio>
 
 <div class="letter-box">
     <div class="text-area">
@@ -203,6 +201,34 @@ function replay() {
 }
 
 type();
+</script>
+<script>
+const songs = [
+    "song.mp3",
+    "song1.mp3",
+    "song3.mp3"
+];
+
+let currentSong = 0;
+const audioPlayer = document.getElementById("bgMusic");
+
+// load first song
+audioPlayer.src = songs[currentSong];
+audioPlayer.play();
+
+// when one song ends → play next
+audioPlayer.addEventListener("ended", function () {
+    currentSong++;
+
+    if (currentSong < songs.length) {
+        audioPlayer.src = songs[currentSong];
+        audioPlayer.play();
+    } else {
+        currentSong = 0;   // optional: restart playlist
+        audioPlayer.src = songs[currentSong];
+        audioPlayer.play();
+    }
+});
 </script>
 
 </body>
