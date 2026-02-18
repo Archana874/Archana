@@ -211,24 +211,24 @@ const songs = [
 ];
 
 let currentSong = 0;
-const audioPlayer = document.getElementById("bgMusic");
 
-// load first song
-audioPlayer.src = songs[currentSong];
-audioPlayer.play();
+// 🔥 Preload all songs
+const audioList = songs.map(src => {
+    const audio = new Audio(src);
+    audio.preload = "auto";
+    return audio;
+});
 
-// when one song ends → play next
-audioPlayer.addEventListener("ended", function () {
-    currentSong++;
+// play first song
+audioList[currentSong].play();
 
-    if (currentSong < songs.length) {
-        audioPlayer.src = songs[currentSong];
-        audioPlayer.play();
-    } else {
-        currentSong = 0;   // optional: restart playlist
-        audioPlayer.src = songs[currentSong];
-        audioPlayer.play();
-    }
+// when song ends → instantly play next
+audioList.forEach((audio, index) => {
+    audio.addEventListener("ended", () => {
+        currentSong = (index + 1) % audioList.length;
+        audioList[currentSong].currentTime = 0;
+        audioList[currentSong].play();
+    });
 });
 </script>
 
