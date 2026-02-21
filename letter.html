@@ -87,6 +87,18 @@ body {
     scroll-behavior: smooth;
     padding-right: 5px;
 }
+#nextBtn {
+    margin-top: 10px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 20px;
+    background: #ff4081;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
+}
 
 /* hide scrollbar but keep scroll */
 .text-area::-webkit-scrollbar {
@@ -106,8 +118,11 @@ body {
     <div class="text-area">
         <div id="typing"></div>
     </div>
+
+    <button id="nextBtn" onclick="start()">
+        id last idond nodu 💖
+    </button>
 </div>
-<button onclick="start()">id last idond nodu</button>
 <script>
 function heart() {
     const h = document.createElement("div");
