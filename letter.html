@@ -231,6 +231,12 @@ audioList.forEach((audio, index) => {
         audioList[currentSong].play();
     });
 });
+function start() {
+    document.body.style.opacity = "0";
+    setTimeout(() => {
+        window.location.href = "bg.html"; // or next page
+    }, 800);
+}
 </script>
 
 </body>
