@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-body {
+/* body {
     margin: 0;
     height: 100vh;
     font-family: Arial;
@@ -15,6 +15,14 @@ body {
     align-items: center;
     background-size: cover;
     background-position: center;
+} */
+ body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: black;
 }
 
 /* 💖 Card */
@@ -23,7 +31,11 @@ body {
     height: 90vh;
     border-radius: 25px;
     background-image: url("photo/ussssssss.jpeg");
-    backdrop-filter: blur(10px);
+
+    background-size: cover;        /* 🔥 important */
+    background-position: center;   /* 🔥 important */
+    background-repeat: no-repeat;  /* 🔥 important */
+
     box-shadow: 0 10px 30px rgba(0,0,0,0.4);
     padding: 25px;
     text-align: center;
