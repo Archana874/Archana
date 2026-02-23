@@ -6,16 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-/* body {
-    margin: 0;
-    height: 100vh;
-    font-family: Arial;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-size: cover;
-    background-position: center;
-} */
+
  body {
     margin: 0;
     height: 100vh;
@@ -42,6 +33,17 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    animation: romanticMove 10s ease-in-out infinite alternate;
+}
+@keyframes romanticMove {
+    from {
+        background-position: center 60%;
+        background-size: 110%;
+    }
+    to {
+        background-position: center 30%;
+        background-size: 120%;
+    }
 }
 
 /* Optional heading */
